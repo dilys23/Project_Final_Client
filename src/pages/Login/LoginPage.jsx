@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Login.css";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -9,11 +9,12 @@ function LoginPage() {
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
     const [touched, setTouched] = useState({ email: false, password: false });
+    const navigate = useNavigate();
 
     async function login() {
 
         const response = await axios.post(
-            'http://localhost:3001/api/auth/login',
+            'http://localhost:3002/api/auth/login',
             JSON.stringify({ email, password }),
             {
                 headers: { "Content-Type": "application/json" },
@@ -21,6 +22,13 @@ function LoginPage() {
             }
         );
         console.log(response);
+        if (response.data) {
+            navigate('/Dashboard');
+        }
+        else {
+            alert('login failed');
+        }
+
 
     }
 
