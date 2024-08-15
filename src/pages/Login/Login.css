@@ -1,0 +1,108 @@
+
+  .login-page {
+    background: #fff;
+    padding: 30px 100px;
+    width: 550px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 10px;
+  }
+   
+
+  .login-page h2 {
+    margin: 18px 0px 50px 0px;
+  }
+   
+  .login-page  img {
+    width: 18px;
+    margin-right: 10px;
+  }
+   
+  .login-page button {
+    width: 100%;
+    padding: 8px 0;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0px;
+    border-radius: 5px;
+    border: 1px solid #999;
+    font-weight: 500;
+    cursor: pointer;
+    gap: 10px; 
+    font-size: 15px;
+  }
+  
+
+  .login-page hr {
+    border: 0;
+    height: 1px;
+    background: #c2c2c2;
+    margin: 5px;
+  }
+   
+  .login-page span {
+    display: block;
+    width: 40px;
+    margin: auto;
+    background: #fff;
+    font-size: 14px;
+    margin-top: -16px;
+  }
+  .login-page input {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #999;
+    outline: 0;
+    margin: 10px 0px 0px 0px;
+    padding: 15px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  ::placeholder {
+    font-weight: 500;
+    color: #333;
+  }
+   
+  .btn-Signin, .btn-Signup, .btn-Forgot {
+    background-color: #dcdcdc !important;
+    color: #100f0f;
+    border: 0;
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+  .logo-box button:hover {
+    background: #000;
+    color: #fff;
+    border: 0;
+    margin-bottom: 15px;
+  }
+   
+   
+  .login-page p {
+    /* text-align: left; */
+    font-size: 15px;
+    color: #555;
+    margin: 40px 0 50px;
+  }
+   
+  .login-page a {
+    text-decoration: none;
+    color: #359cf0;
+    font-size: 15px;
+    margin-left: 5px;
+  }
+  .input-error {
+    border: 0.5px solid red !important;
+}
+
+  .error{
+  color: red;
+  margin: 10px 0px 0px 200px;
+  font-size: 14px;
+  
+}
