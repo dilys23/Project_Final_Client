@@ -14,7 +14,7 @@ function LoginPage() {
     async function login() {
 
         const response = await axios.post(
-            'http://localhost:3002/api/auth/login',
+            'http://localhost:3001/api/v1/auth/login',
             JSON.stringify({ email, password }),
             {
                 headers: { "Content-Type": "application/json" },
@@ -23,16 +23,13 @@ function LoginPage() {
         );
         console.log(response);
         if (response.data) {
+            console.log("Login successfully")
             navigate('/Dashboard');
         }
         else {
             alert('login failed');
         }
-
-
     }
-
-
 
     const handleSubmit = (event) => {
         event.preventDefault();
