@@ -84,10 +84,25 @@ function LoginPage() {
         return error;
     }
 
-
-    const googleAuth = () => {
-        window.open("http://localhost:3001/api/v1/auth/google", "_self");
+    const googleAuth = async () => {
+        try {
+            window.open("http://localhost:3001/api/v1/auth/google", "_self");
+            const response = await axios.get("http://localhost:3001/api/v1/auth/google", {
+                withCredentials: true
+            });
+            if (response.data) {
+                console.log("Google login successful");
+                navigate('/Dashboard');
+            }
+        } catch (error) {
+            console.error("Google login failed", error);
+        }
     };
+    
+
+    // const googleAuth = () => {
+    //     window.open("http://localhost:3001/api/v1/auth/google", "_self");
+    // };
     return (
         <div className="login-page">
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
