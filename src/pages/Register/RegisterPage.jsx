@@ -142,7 +142,7 @@ function RegisterPage() {
             </button>
             <p>
                 Already have an account?
-                <a href="#">Sign in</a>
+                <a href="/login">Sign in</a>
             </p>
         </div>
     );

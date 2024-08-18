@@ -21,9 +21,11 @@ function LoginPage() {
                 withCredentials: true,
             }
         );
-        console.log(response);
-        if (response.data) {
+        if (response.status === 200) {
             console.log("Login successfully")
+            sessionStorage.setItem('authToken', response.data.token);
+            sessionStorage.setItem('userId', response.data.id);
+            document.cookie = `refreshToken=${response.data.refreshToken}; path=/; max-age=2592000;`;
             navigate('/Dashboard');
         }
         else {
@@ -134,7 +136,11 @@ function LoginPage() {
                 <button className="btn-Signin" type="submit" onClick={login}>Sign in</button>
 
             </form>
-            <button>Forget Password</button>
+            <button>
+                <Link to="/forgot-password">
+                    Forget Password
+                </Link>
+            </button>
             <p>
                 <Link to="/register" className="signup-link">
                     Don't have an account? Sign up
