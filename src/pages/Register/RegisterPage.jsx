@@ -2,6 +2,7 @@ import "../Login/Login.css";
 import { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 function RegisterPage() {
     const [email, setEmail] = useState("");
@@ -38,7 +39,7 @@ function RegisterPage() {
                 }
             } catch (error) {
                 console.error("Registration failed", error);
-                setErrors({ apiError: "Registration failed. Please try again." });
+                toast.error("Registration failed");
             }
         }
     };

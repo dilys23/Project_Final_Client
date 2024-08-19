@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./Login.css";
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 
 function LoginPage() {
@@ -12,24 +13,29 @@ function LoginPage() {
     const navigate = useNavigate();
 
     async function login() {
-
-        const response = await axios.post(
-            'http://localhost:3001/api/v1/auth/login',
-            JSON.stringify({ email, password }),
-            {
-                headers: { "Content-Type": "application/json" },
-                withCredentials: true,
+        try {
+            const response = await axios.post(
+                'http://localhost:3001/api/v1/auth/login',
+                JSON.stringify({ email, password }),
+                {
+                    headers: { "Content-Type": "application/json" },
+                    withCredentials: true,
+                }
+            );
+            if (response.status === 200) {
+                console.log("Login successfully")
+                sessionStorage.setItem('authToken', response.data.token);
+                sessionStorage.setItem('userId', response.data.id);
+                document.cookie = `refreshToken=${response.data.refreshToken}; path=/; max-age=2592000;`;
+                navigate('/Dashboard');
             }
-        );
-        if (response.status === 200) {
-            console.log("Login successfully")
-            sessionStorage.setItem('authToken', response.data.token);
-            sessionStorage.setItem('userId', response.data.id);
-            document.cookie = `refreshToken=${response.data.refreshToken}; path=/; max-age=2592000;`;
-            navigate('/Dashboard');
-        }
-        else {
-            alert('login failed');
+            else {
+                toast.error('Login failed');
+            }
+        } catch (error) {
+            console.error("Login failed", error);
+            toast.error('Login failed');
+            
         }
     }
 
@@ -38,7 +44,7 @@ function LoginPage() {
         const errors = validate();
         setErrors(errors);
         if (Object.keys(errors).length === 0) {
-            alert("Done");
+            toast.success('Login successful');
         }
     }
     const handleEmailChange = (event) => {
@@ -98,6 +104,7 @@ function LoginPage() {
             }
         } catch (error) {
             console.error("Google login failed", error);
+            toast.error('Google login failed');
         }
     };
     

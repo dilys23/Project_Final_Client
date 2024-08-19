@@ -56,9 +56,7 @@ function ForgotPass() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         handleForgotPass(email);
-        if (handleForgotPass.status === 200) {
-            setEmailSent(true);
-        }
+        setEmailSent(true);
         console.log('Email sent:', email);
     };
     const handleOtpSubmit = (event) => {
