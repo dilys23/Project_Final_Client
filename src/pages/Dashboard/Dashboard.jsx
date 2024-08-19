@@ -1,6 +1,7 @@
 import React, { useEffect , useState } from 'react'; // Import useEffect from React
 import "./Dashboard.css";
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const handleAuthTokens = () => {
   const urlParams = new URLSearchParams(window.location.search);
@@ -74,6 +75,8 @@ const Dashboard = () => {
     } catch (error) {
       if(error.response.status === 401) {
         handleRefreshToken();
+      } else {
+        toast.error('Error get data');
       }
     }
   }
