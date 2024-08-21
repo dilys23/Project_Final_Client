@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 const handleChangePass = async (email, password) => {
     try {
         const response = await axios.post(
-            'http://localhost:3001/api/v1/auth/updatePassword',
+            'http://tuducmanh2911.io.vn/api/v1/auth/updatePassword',
             { email, password },
             {
                 headers: { 'Content-Type': 'application/json' },
