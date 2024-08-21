@@ -15,7 +15,7 @@ function LoginPage() {
     async function login() {
         try {
             const response = await axios.post(
-                'http://localhost:3001/api/v1/auth/login',
+                'http://tuducmanh2911.io.vn/api/v1/auth/login',
                 JSON.stringify({ email, password }),
                 {
                     headers: { "Content-Type": "application/json" },
@@ -94,8 +94,8 @@ function LoginPage() {
 
     const googleAuth = async () => {
         try {
-            window.open("http://localhost:3001/api/v1/auth/google", "_self");
-            const response = await axios.get("http://localhost:3001/api/v1/auth/google", {
+            window.open("https://tuducmanh2911.io.vn/api/v1/auth/google", "_self");
+            const response = await axios.get("https://tuducmanh2911.io.vn/api/v1/auth/google", {
                 withCredentials: true
             });
             if (response.data) {
@@ -111,8 +111,8 @@ function LoginPage() {
 
     const facebookAuth = async () => {
         try {
-            window.open("http://localhost:3001/api/v1/auth/facebook", "_self");
-            const response = await axios.get("http://localhost:3001/api/v1/auth/facebook", {
+            window.open("http://tuducmanh2911.io.vn/api/v1/auth/facebook", "_self");
+            const response = await axios.get("http://tuducmanh2911.io.vn/api/v1/auth/facebook", {
                 withCredentials: true
             });
             if (response.data) {

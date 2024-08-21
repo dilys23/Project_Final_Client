@@ -38,7 +38,7 @@ const handleRefreshToken = async () => {
 
     // Gửi yêu cầu làm mới token đến server
     const response = await axios.post(
-      'http://localhost:3001/api/v1/auth/refresh',
+      'http://tuducmanh2911.io.vn/api/v1/auth/refresh',
       { refreshToken },
       {
         headers: {
@@ -65,7 +65,7 @@ const Dashboard = () => {
     try {
       const id = sessionStorage.getItem('userId');
       const token = sessionStorage.getItem('authToken');
-      const response = await axios.get(`http://localhost:3001/api/v1/user/${id}`, {
+      const response = await axios.get(`http://tuducmanh2911.io.vn/api/v1/user/${id}`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,

@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 const handleForgotPass = async (email) => {
     try {
         const response = await axios.post(
-            'http://localhost:3001/api/v1/auth/forgotPassword',
+            'http://tuducmanh2911.io.vn/api/v1/auth/forgotPassword',
             { email },
             {
                 headers: { 'Content-Type': 'application/json' },
@@ -25,7 +25,7 @@ const handleForgotPass = async (email) => {
 const handleOTP = async (email, otp) => {
     try {
         const response = await axios.post(
-            'http://localhost:3001/api/v1/auth/checkOTP',
+            'http://tuducmanh2911.io.vn/api/v1/auth/checkOTP',
             { email, otp },
             {
                 headers: { 'Content-Type': 'application/json' },

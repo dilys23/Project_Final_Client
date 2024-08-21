@@ -21,18 +21,18 @@ function RegisterPage() {
         e.preventDefault();
         const validationErrors = validate();
         setErrors(validationErrors);
-    
+
         if (Object.keys(validationErrors).length === 0) {
             try {
                 const response = await axios.post(
-                    "http://localhost:3001/api/v1/auth/register",
+                    "http://tuducmanh2911.io.vn/api/v1/auth/register",
                     { email, displayName, password, role: "user" },  // Add role here
                     {
                         headers: { "Content-Type": "application/json" },
                         withCredentials: true,
                     }
                 );
-    
+
                 if (response.data) {
                     console.log("Registration successful");
                     navigate("/Dashboard");
@@ -43,7 +43,7 @@ function RegisterPage() {
             }
         }
     };
-    
+
 
     const validate = () => {
         const newErrors = {};
@@ -85,8 +85,8 @@ function RegisterPage() {
 
                 <input
                     type="text"
-                    placeholder="Display Name" 
-                    value={displayName} 
+                    placeholder="Display Name"
+                    value={displayName}
                     className="btn-DisplayName"
                     onChange={handleDisplayNameChange}
                 />
